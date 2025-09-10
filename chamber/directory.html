@@ -1,0 +1,99 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Ibadan Chamber — Directory</title>
+<meta name="description" content="Directory of chamber members for Ibadan. Search, filter, and view members in grid or list layout.">
+<meta name="author" content="Bolaji Olawale Ajibola">
+
+
+<!-- Facebook Open Graph -->
+<meta property="og:title" content="Ibadan Chamber — Directory">
+<meta property="og:description" content="Directory of chamber members for [Your Town].">
+<meta property="og:image" content="https://yourdomain.com/chamber/images/og-image.jpg">
+<meta property="og:url" content="https://yourdomain.com/chamber/directory.html">
+<meta property="og:type" content="website">
+
+
+<link rel="icon" href="images/favicon.ico" type="image/x-icon">
+
+
+<!-- CSS -->
+<link rel="stylesheet" href="styles/normalize.css">
+<link rel="stylesheet" href="styles/chamber.css">
+
+
+<!-- JS (deferred) -->
+<script defer src="scripts/ui.js"></script>
+<script defer src="scripts/directory.js"></script>
+</head>
+<body>
+<header class="site-header">
+<div class="container">
+<a class="logo" href="../index.html" aria-label="Home"><img src="images/chamber.jpg" alt="Chamber logo" width="40"></a>
+<button id="navToggle" class="nav-toggle" aria-expanded="false" aria-controls="primaryNav" aria-label="Open navigation">
+☰
+</button>
+<nav id="primaryNav" class="primary-nav" aria-label="Main navigation">
+<ul>
+<li><a href="../index.html">Home</a></li>
+<li><a href="directory.html" class="active">Directory</a></li>
+<li><a href="join.html">Join</a></li>
+<li><a href="events.html">Events</a></li>
+</ul>
+</nav>
+</div>
+</header>
+
+
+<main class="container" id="main">
+<h1>Chamber Directory — Ibadan</h1>
+
+
+<section class="controls" aria-label="Directory controls">
+<div class="layout-toggle" role="group" aria-label="Layout view">
+<button id="viewGrid" class="view-btn active" aria-pressed="true">Grid</button>
+<button id="viewList" class="view-btn" aria-pressed="false">List</button>
+</div>
+
+
+<div class="search-filter">
+<label for="searchInput" class="visually-hidden">Search members</label>
+<input id="searchInput" type="search" placeholder="Search by name, industry, or city" aria-label="Search members">
+
+
+<label for="membershipFilter">Membership</label>
+<select id="membershipFilter">
+<option value="all">All</option>
+<option value="1">Member</option>
+<option value="2">Silver</option>
+<option value="3">Gold</option>
+</select>
+</div>
+</section>
+
+
+<section id="directory" class="directory" aria-live="polite">
+<!-- Cards will be injected here by directory.js -->
+</section>
+
+
+</main>
+
+ <footer class="site-footer">
+    <div class="footer-inner">
+      <p>
+        <a href="https://github.com/raisgard" aria-label="GitHub profile">GitHub</a> |
+        <a href="https://www.linkedin.com/in/raisgard" aria-label="LinkedIn profile">LinkedIn</a>
+      </p>
+
+      <p id="copyright">
+        © <span id="currentYear"></span> Bolaji Olawale Ajibola — Ibadan, Nigeria
+      </p>
+
+      <p id="lastModified">Last modified: <span id="lastModifiedValue"></span></p>
+    </div>
+  </footer>
+</body>
+</html>

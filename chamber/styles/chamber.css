@@ -1,0 +1,64 @@
+/* chamber.css - core page styles (mobile-first) */
+:root{--max:1100px;--accent:#0f62fe;--muted:#64748b;--bg:#fff}
+*{box-sizing:border-box}
+html,body{margin:0;padding:0;font-family:Inter, system-ui, -apple-system, 'Segoe UI', Roboto, Arial;background:var(--bg);color:#111}
+.container{max-width:var(--max);margin:0 auto;padding:1rem}
+.visually-hidden{position:absolute!important;height:1px;width:1px;overflow:hidden;clip:rect(1px,1px,1px,1px)}
+
+
+/* header */
+.site-header{
+    border-bottom:1px solid #e6e7eb;
+    background:linear-gradient(180deg, #fff, #fbfdff);
+    position:sticky;top:0;z-index:50;}
+.header .container{display:flex;align-items:center;justify-content:space-between}
+.primary-nav ul{list-style:none;padding:0;margin:0;display:flex;gap:0.5rem}
+.primary-nav a{display:inline-block;padding:0.5rem 0.75rem;text-decoration:none;color:inherit}
+.primary-nav a:hover, .primary-nav a:focus{background:#f1f5f9}
+
+
+/* controls */
+.controls{display:flex;flex-direction:column;gap:1rem;margin:1rem 0}
+.layout-toggle{display:flex;gap:0.5rem}
+.view-btn{padding:0.4rem 0.75rem;border:1px solid #e6e6e6;border-radius:8px;background:#fff}
+.view-btn.active{background:var(--accent);color:#fff;border-color:var(--accent)}
+.search-filter{display:flex;gap:0.5rem;flex-wrap:wrap}
+.search-filter input[type='search']{flex:1;padding:0.5rem;border-radius:8px;border:1px solid #ddd}
+.search-filter select{padding:0.5rem;border-radius:8px;border:1px solid #ddd}
+
+
+/* directory grid/list */
+.directory{display:grid;gap:1rem}
+.card{display:flex;flex-direction:column;border:1px solid #e6e6e6;border-radius:10px;padding:1rem;background:#fff}
+.card .meta{font-size:0.9rem;color:var(--muted);margin-top:0.5rem}
+.card .actions{margin-top:1rem}
+.card .actions a{margin-right:0.5rem}
+
+
+/* grid vs list classes toggled by JS */
+.directory.grid{grid-template-columns:repeat(1,1fr)}
+.directory.list{grid-template-columns:1fr}
+
+
+@media (min-width:600px){
+.directory.grid{grid-template-columns:repeat(2,1fr)}
+}
+@media (min-width:1000px){
+.directory.grid{grid-template-columns:repeat(3,1fr)}
+.controls{flex-direction:row;justify-content:space-between;align-items:center}
+}
+
+
+/* footer */
+.site-footer{border-top:1px solid #eee;padding:1rem 0;text-align:center}
+
+footer {
+  text-align: center;
+  padding: 1rem;
+  background-color: #f3f4f6; /* optional light background */
+  color: #374151;           /* dark gray text */
+}
+
+footer p {
+  margin: 0.5rem 0;
+}

@@ -1,0 +1,9 @@
+[
+{"id":1,"name":"Acme Bakery","address":"24, Liberty road, Morgan St","phone":"(234) 704-600-3773","website":"https://acme.example","image":"images/acme.jpg","level":3,"city":"Ibadan","industry":"Food & Beverage"},
+{"id":2,"name":"Bright Tech","address":"45 Grid road, Crown St","phone":"(234) 705-622-3113","website":"https://bright.example","image":"images/bright.jpg","level":2,"city":"Ibadan","industry":"Technology"},
+{"id":3,"name":"Green Grocers","address":"7 Market Rd, Ghost St","phone":"(234) 703-600-3003","website":"https://green.example","image":"images/green.jpg","level":1,"city":"Ibadan","industry":"Retail"},
+{"id":4,"name":"Harbor Logistics","address":"88 Dock Lane, Avatar St","phone":"(234) 814-646-3983","website":"https://harbor.example","image":"images/harbor.jpg","level":3,"city":"Ibadan","industry":"Logistics"},
+{"id":5,"name":"Maple Health","address":"200 Wellness Blvd, Kings St","phone":"(234) 804-113-3443","website":"https://maple.example","image":"images/maple.jpg","level":2,"city":"Ibadan","industry":"Healthcare"},
+{"id":6,"name":"Oak Legal","address":"12, Rais road, Court St","phone":"(234) 704-600-1264","website":"https://oak.example","image":"images/oak.jpg","level":1,"city":"Ibadan","industry":"Legal"},
+{"id":7,"name":"Summit Builders","address":"9 Construction Way, Divine St","phone":"(234) 805-345-6784","website":"https://summit.example","image":"images/summit.jpg","level":2,"city":"Ibadan","industry":"Construction"}
+]
