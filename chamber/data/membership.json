@@ -1,0 +1,42 @@
+[
+  {
+    "name": "Ibadan Tech Hub",
+    "address": "3 UI Road, Bodija, Ibadan",
+    "phone": "+234 701 234 5678",
+    "website": "https://ibadantechhub.com",
+    "logo": "tech.webp",
+    "membershipLevel": "Gold"
+  },
+  {
+    "name": "Oluyole Farms",
+    "address": "Plot 12, Ring Road, Ibadan",
+    "phone": "+234 803 555 1122",
+    "website": "https://oluyolefarms.ng",
+    "logo": "farm.jpeg",
+    "membershipLevel": "Silver"
+  },
+  {
+    "name": "Mapo Conference Centre",
+    "address": "1 Mapo Hill Road, Ibadan",
+    "phone": "+234 809 987 6543",
+    "website": "https://mapoconference.ng",
+    "logo": "mapo.jpg",
+    "membershipLevel": "Bronze"
+  },
+  {
+    "name": "Dugbe Fashion Mall",
+    "address": "Shop 45, Dugbe Market, Ibadan",
+    "phone": "+234 705 222 3344",
+    "website": "https://dugbemall.ng",
+    "logo": "fashion.jpg",
+    "membershipLevel": "Gold"
+  },
+  {
+    "name": "Cocoa House Café",
+    "address": "Cocoa House, Dugbe, Ibadan",
+    "phone": "+234 802 123 9988",
+    "website": "https://cocoahousecafe.com",
+    "logo": "cocoa.webp",
+    "membershipLevel": "Silver"
+  }
+]

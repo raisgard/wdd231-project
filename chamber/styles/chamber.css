@@ -62,3 +62,348 @@ footer {
 footer p {
   margin: 0.5rem 0;
 }
+
+.hero {
+  position: relative;
+  text-align: center;
+  color: white;
+}
+
+.hero-img {
+  width: 100%;
+  height: 40vh;
+  object-fit: cover;
+  filter: brightness(0.7);
+}
+
+.hero-text {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.cta-btn {
+  background: #2563eb;
+  color: #fff;
+  padding: 0.75rem 1.25rem;
+  border-radius: 8px;
+  text-decoration: none;
+  display: inline-block;
+  margin-top: 1rem;
+  transition: background 0.3s ease;
+}
+.cta-btn:hover {
+  background: #1d4ed8;
+}
+
+.events, .weather, .spotlights {
+  margin: 2rem auto;
+  max-width: 900px;
+  padding: 1rem;
+}
+
+.spotlight-grid {
+  display: grid;
+  gap: 1rem;
+}
+@media (min-width: 600px) {
+  .spotlight-grid {
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  }
+}
+.spotlight-card {
+  border: 1px solid #e5e7eb;
+  border-radius: 10px;
+  padding: 1rem;
+  text-align: center;
+  background: #fff;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.05);
+}
+.spotlight-card img {
+  max-width: 80px;
+  margin-bottom: 0.5rem;
+}
+
+.hero {
+  position: relative;
+  text-align: center;
+  color: white;
+}
+
+.hero img {
+  width: 100%;
+  height: 300px;
+  object-fit: cover;
+}
+.hero-text {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background: rgba(0, 0, 0, 0.5);
+  padding: 1rem;
+  border-radius: 10px;
+}
+
+.cta-button {
+  display: inline-block;
+  background: #0077cc;
+  color: white;
+  padding: 0.5rem 1rem;
+  margin-top: 1rem;
+  text-decoration: none;
+  border-radius: 5px;
+}
+
+.spotlight-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 1rem;
+  margin-top: 1rem;
+}
+
+.spotlight-card {
+  border: 1px solid #ccc;
+  padding: 1rem;
+  background: #fff;
+  border-radius: 10px;
+  text-align: center;
+}
+
+.spotlight-card img {
+  max-width: 100px;
+  margin-bottom: 0.5rem;
+}
+
+/* Spotlight Container */
+.spotlight-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 1.5rem;
+  margin-top: 1rem;
+  padding: 0;
+}
+
+/* Individual Card Styling */
+.spotlight-card {
+  background: #ffffff;
+  border-radius: 12px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.08);
+  padding: 1rem;
+  text-align: center;
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
+}
+
+.spotlight-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.12);
+}
+
+/* Logo Image */
+.spotlight-card img {
+  max-width: 100px;
+  max-height: 100px;
+  object-fit: contain;
+  margin: 0 auto 0.5rem auto;
+  display: block;
+}
+
+/* Business Name */
+.spotlight-card h3 {
+  font-size: 1.2rem;
+  color: #222;
+  margin-bottom: 0.25rem;
+}
+
+/* Address & Phone */
+.spotlight-card p {
+  font-size: 0.9rem;
+  color: #555;
+  margin: 0.2rem 0;
+}
+
+/* Website Link */
+.spotlight-card a {
+  display: inline-block;
+  margin-top: 0.5rem;
+  color: #0077cc;
+  text-decoration: none;
+  font-weight: 500;
+}
+
+.spotlight-card a:hover {
+  text-decoration: underline;
+}
+
+/* Membership Level Label */
+.spotlight-card .level {
+  display: inline-block;
+  margin-top: 0.5rem;
+  padding: 0.3rem 0.6rem;
+  border-radius: 20px;
+  font-size: 0.85rem;
+  font-weight: bold;
+  background-color: #f1f1f1;
+}
+
+.spotlight-card .level::before {
+  content: "🏆 ";
+}
+
+/* Color-Coded Membership Levels */
+.spotlight-card .level:contains("Gold") {
+  background-color: #ffd70033;
+  color: #a37b00;
+}
+
+.spotlight-card .level:contains("Silver") {
+  background-color: #c0c0c033;
+  color: #555;
+}
+
+/* Weather Section Container */
+.weather-section {
+  background: linear-gradient(to right, #e0f7fa, #ffffff);
+  border-radius: 12px;
+  padding: 1.5rem;
+  margin: 1.5rem 0;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.08);
+  text-align: center;
+  max-width: 700px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+/* Title */
+.weather-section h2 {
+  font-size: 1.4rem;
+  color: #004d66;
+  margin-bottom: 1rem;
+}
+
+/* Current Weather Container */
+.current-weather {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 1rem;
+  margin-bottom: 1rem;
+}
+
+.current-weather img {
+  width: 50px;
+  height: 50px;
+}
+
+.current-weather .temp {
+  font-size: 2rem;
+  font-weight: bold;
+  color: #00796b;
+}
+
+.current-weather .description {
+  font-size: 1rem;
+  text-transform: capitalize;
+  color: #444;
+  align-items: center;
+}
+
+/* Forecast Section */
+.forecast {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
+  gap: 0.8rem;
+  margin-top: 1rem;
+}
+
+.forecast-day {
+  background: #ffffff;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  padding: 0.8rem;
+  text-align: center;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
+}
+
+.forecast-day h4 {
+  font-size: 0.9rem;
+  margin-bottom: 0.3rem;
+  color: #333;
+}
+
+
+.forecast-day .temp {
+  font-weight: bold;
+  font-size: 1rem;
+  color: #00796b;
+}
+
+/* Upcoming Events Section */
+.events-section {
+  background: #f8f9fa;
+  border-radius: 12px;
+  padding: 1.5rem;
+  margin: 2rem auto;
+  max-width: 800px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.06);
+}
+
+.events-section h2 {
+  font-size: 1.6rem;
+  color: #004d66;
+  text-align: center;
+  margin-bottom: 1rem;
+  font-weight: 600;
+}
+
+/* Event List Container */
+.event-list {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 1rem;
+}
+
+/* Individual Event Card */
+.event-card {
+  background: #ffffff;
+  border-radius: 10px;
+  padding: 1rem;
+  border: 1px solid #e0e0e0;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.05);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.event-card:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+}
+
+/* Event Title */
+.event-card h3 {
+  font-size: 1.2rem;
+  color: #00796b;
+  margin-bottom: 0.3rem;
+}
+
+/* Event Date */
+.event-card .event-date {
+  font-size: 0.9rem;
+  font-weight: 600;
+  color: #555;
+  margin-bottom: 0.5rem;
+}
+
+/* Event Description */
+.event-card p {
+  font-size: 0.95rem;
+  color: #333;
+  line-height: 1.4;
+}
+
+/* Responsive Layout: Two columns for larger screens */
+@media (min-width: 600px) {
+  .event-list {
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  }
+}
