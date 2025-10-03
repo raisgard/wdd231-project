@@ -1,0 +1,308 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Join — Ibadan Chamber of Commerce</title>
+  <meta name="description" content="Apply to join the Ibadan Chamber of Commerce — membership application form." />
+  <link rel="stylesheet" href="styles/normalize.css" />
+  <link rel="stylesheet" href="styles/chamber.css" />
+  <style>
+    /* JOIN page specific styles (add to chamber.css if you prefer) */
+    .join-layout { max-width:1100px; margin:1.25rem auto; padding:1rem; display:grid; gap:1rem; grid-template-columns: 1fr; }
+
+    /* On wide screens, show form left and cards right */
+    @media (min-width: 900px) {
+      .join-layout { grid-template-columns: 1fr 360px; align-items:start; }
+    }
+
+    .join-card {
+      background:#fff;border:1px solid #e6e9ee;border-radius:12px;padding:1rem;box-shadow:0 6px 18px rgba(15,23,42,0.04);
+    }
+
+    .application-form label{display:block;margin-bottom:.75rem;font-size:0.95rem}
+    .application-form input[type="text"],
+    .application-form input[type="email"],
+    .application-form input[type="tel"],
+    .application-form textarea,
+    .application-form select {
+      width:100%;padding:.6rem .75rem;border:1px solid #d1d5db;border-radius:8px;font-size:1rem;
+    }
+
+    .application-form textarea { min-height:120px; resize:vertical; }
+
+    .form-row { display:grid; gap:.5rem; grid-template-columns:1fr; }
+    @media (min-width:600px){ .form-row.two { grid-template-columns: 1fr 1fr; gap:0.75rem; } }
+
+    .submit-row { display:flex; justify-content:flex-start; gap:.75rem; margin-top:.5rem; }
+    .btn { background:#0f62fe;color:white;border:0;padding:.6rem .9rem;border-radius:8px;cursor:pointer;font-weight:600 }
+    .btn.ghost { background:transparent;border:1px solid #64748b;color:#102a43 }
+
+    /* Membership cards column */
+    .levels-col { display:flex; flex-direction:column; gap:0.9rem; }
+    .level-card {
+      display:block;padding:1rem;border-radius:10px;border:1px solid #e6e7eb;background:linear-gradient(180deg,#fff,#fbfdff);
+      transition:transform .6s ease, box-shadow .25s ease, opacity .6s ease;
+      opacity:0; transform: translateY(10px);
+    }
+    /* Visible after initial animation */
+    .level-card.visible { opacity:1; transform: translateY(0); }
+
+    .level-card h3 { margin:.25rem 0; font-size:1.05rem; }
+    .level-card p { margin:0; color:#475569; font-size:.95rem; }
+    .level-card .info-link { display:inline-block;margin-top:.6rem;color:#0f62fe;text-decoration:none;font-weight:600 }
+
+    /* Modal base */
+    .modal {
+      position:fixed; inset:0; display:flex; align-items:center; justify-content:center; z-index:1200;
+      background:rgba(2,6,23,0.6); padding:1rem; opacity:0; pointer-events:none; transition:opacity .2s ease;
+    }
+    .modal[aria-hidden="false"]{ opacity:1; pointer-events:auto; }
+    .modal-panel {
+      background:white; border-radius:10px; max-width:720px; width:100%; padding:1rem 1.25rem; box-shadow:0 10px 30px rgba(2,6,23,0.4);
+    }
+    .modal-close { float:right; background:none;border:0;font-size:1.2rem;padding:.25rem; cursor:pointer }
+
+    /* small accessibility tweaks */
+    .sr-only { position:absolute!important; height:1px; width:1px; overflow:hidden; clip:rect(1px,1px,1px,1px); white-space:nowrap; }
+  </style>
+</head>
+<body>
+  <!-- header / nav (use your consistent header) -->
+  <header class="site-header">
+    <div class="header-inner">
+      <a class="logo-link" href="../index.html">
+        <img src="images/chamber.jpg" alt="Ibadan Chamber logo" width="72" height="72">
+       
+      </a>
+
+      
+
+      <nav id="primaryNav" class="primary-nav" aria-label="Main navigation">
+        <ul>
+          <li><a href="index.html">Home</a></li>
+          <li><a href="directory.html">Directory</a></li>
+          <li><a href="join.html" class="active">Join</a></li>
+          <li><a href="contact.html">Contact</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <main class="join-layout" id="main">
+    <!-- LEFT: Form -->
+    <section class="join-card" aria-labelledby="joinHeading">
+      <h2 id="joinHeading">Membership Application</h2>
+      <p>Please complete this application to join the Chamber.</p>
+
+      <!-- FORM: method GET to thankyou.html -->
+      <form class="application-form" method="get" action="thankyou.html" id="joinForm" novalidate>
+        <!-- first / last (required) -->
+        <div class="form-row two" role="group" aria-label="Name">
+          <label>
+            First name *
+            <input type="text" name="firstName" title="First name" autocomplete="given-name" required>
+          </label>
+
+          <label>
+            Last name *
+            <input type="text" name="lastName" title="Last name" autocomplete="family-name" required>
+          </label>
+        </div>
+
+        <!-- org title with pattern -->
+        <label>
+          Organizational title
+          <input type="text" name="orgTitle" title="Organizational title" autocomplete="organization-title"
+                 pattern="^[A-Za-z\\-\\s]{7,}$" placeholder="e.g. Marketing Manager" >
+          <small>Alpha, hyphens and spaces only, min 7 characters.</small>
+        </label>
+
+        <!-- email -->
+        <label>
+          Email *
+          <input type="email" name="email" title="Email address" autocomplete="email" placeholder="name@example.com" required>
+        </label>
+
+        <!-- mobile phone -->
+        <label>
+          Mobile phone *
+          <input type="tel" name="mobile" title="Mobile phone" autocomplete="tel" placeholder="+234 800 000 0000" required>
+        </label>
+
+        <!-- business / organization name -->
+        <label>
+          Business / Organization *
+          <input type="text" name="organization" title="Organization name" autocomplete="organization" required>
+        </label>
+
+        <!-- membership level selection -->
+        <label>
+          Membership Level *
+          <select name="membership" title="Select membership level" required>
+            <option value="">Choose a level</option>
+            <option value="NP">NP - Non-Profit (No Fee)</option>
+            <option value="Bronze">Bronze</option>
+            <option value="Silver">Silver</option>
+            <option value="Gold">Gold</option>
+          </select>
+        </label>
+
+        <!-- description -->
+        <label>
+          Organization description
+          <textarea name="description" title="Organization description" placeholder="Tell us about your organization"></textarea>
+        </label>
+
+        <!-- hidden timestamp -->
+        <input type="hidden" id="ts" name="timestamp" value="">
+
+        <div class="submit-row">
+          <input class="btn" type="submit" value="Submit Application">
+          <button type="reset" class="btn ghost">Reset</button>
+        </div>
+      </form>
+    </section>
+
+    <!-- RIGHT: Membership Level Cards -->
+    <aside class="levels-col" aria-label="Membership levels">
+      <div class="level-card" id="card-np">
+        <h3>NP Membership</h3>
+        <p>Non-profit organizations — no fee. Basic directory listing and community access.</p>
+        <a href="#modal-np" class="info-link" data-modal="modal-np">Benefits &rarr;</a>
+      </div>
+
+      <div class="level-card" id="card-bronze">
+        <h3>Bronze Membership</h3>
+        <p>Entry-level benefits — directory listing, event invites.</p>
+        <a href="#modal-bronze" class="info-link" data-modal="modal-bronze">Benefits &rarr;</a>
+      </div>
+
+      <div class="level-card" id="card-silver">
+        <h3>Silver Membership</h3>
+        <p>Includes promotion, trainings, and spotlights.</p>
+        <a href="#modal-silver" class="info-link" data-modal="modal-silver">Benefits &rarr;</a>
+      </div>
+
+      <div class="level-card" id="card-gold">
+        <h3>Gold Membership</h3>
+        <p>Premium exposure: featured spotlights, sponsorships, advertising.</p>
+        <a href="#modal-gold" class="info-link" data-modal="modal-gold">Benefits &rarr;</a>
+      </div>
+    </aside>
+  </main>
+
+  <!-- Modals (one per level) -->
+  <div id="modal-np" class="modal" role="dialog" aria-modal="true" aria-hidden="true" aria-labelledby="modal-np-title">
+    <div class="modal-panel" role="document">
+      <button class="modal-close" data-close aria-label="Close modal">&times;</button>
+      <h3 id="modal-np-title">NP Membership Benefits</h3>
+      <p>Non-profit membership includes a free directory listing, newsletter inclusion, and community event invites.</p>
+    </div>
+  </div>
+
+  <div id="modal-bronze" class="modal" role="dialog" aria-modal="true" aria-hidden="true" aria-labelledby="modal-bronze-title">
+    <div class="modal-panel" role="document">
+      <button class="modal-close" data-close aria-label="Close modal">&times;</button>
+      <h3 id="modal-bronze-title">Bronze Membership Benefits</h3>
+      <p>Bronze members receive directory placement, email mentions, and event discounts.</p>
+    </div>
+  </div>
+
+  <div id="modal-silver" class="modal" role="dialog" aria-modal="true" aria-hidden="true" aria-labelledby="modal-silver-title">
+    <div class="modal-panel" role="document">
+      <button class="modal-close" data-close aria-label="Close modal">&times;</button>
+      <h3 id="modal-silver-title">Silver Membership Benefits</h3>
+      <p>Silver members receive all Bronze benefits plus trainings, social posts, and occasional spotlights.</p>
+    </div>
+  </div>
+
+  <div id="modal-gold" class="modal" role="dialog" aria-modal="true" aria-hidden="true" aria-labelledby="modal-gold-title">
+    <div class="modal-panel" role="document">
+      <button class="modal-close" data-close aria-label="Close modal">&times;</button>
+      <h3 id="modal-gold-title">Gold Membership Benefits</h3>
+      <p>Gold members receive priority spotlights, advertising placements, sponsorship opportunities, and VIP event invitations.</p>
+    </div>
+  </div>
+
+  <footer class="site-footer">
+    <div class="footer-inner">
+      <p>Contact: chamber@ibadanchamber.com | +234 800 253 6970</p>
+      <p>Bolaji Olawale Ajibola — WDD 231</p>
+      <p id="lastModified">Last modified: <span id="lastModifiedValue"></span></p>
+    </div>
+  </footer>
+
+  <script>
+    // Join page JS: timestamp + modal logic + initial animation
+    (function () {
+      // populate timestamp hidden field (ISO string)
+      const tsEl = document.getElementById('ts');
+      if (tsEl) tsEl.value = new Date().toISOString();
+
+      // show lastModified
+      const lm = document.getElementById('lastModifiedValue');
+      if (lm) lm.textContent = document.lastModified || 'Unknown';
+
+      // animate level cards in sequence (not hover)
+      const cards = document.querySelectorAll('.level-card');
+      cards.forEach((el, i) => {
+        setTimeout(() => { el.classList.add('visible'); }, 180 * i);
+      });
+
+      // Modal helpers
+      const openers = document.querySelectorAll('[data-modal]');
+      const modals = document.querySelectorAll('.modal');
+      let lastFocused = null;
+
+      openers.forEach(btn => {
+        btn.addEventListener('click', (e) => {
+          e.preventDefault();
+          const id = btn.getAttribute('data-modal');
+          const modal = document.getElementById(id);
+          if (!modal) return;
+          lastFocused = document.activeElement;
+          openModal(modal);
+        });
+      });
+
+      function openModal(modal) {
+        modal.setAttribute('aria-hidden', 'false');
+        const closeBtn = modal.querySelector('[data-close]');
+        closeBtn && closeBtn.focus();
+        // trap focus minimally by listening for Tab on last focusable
+        document.addEventListener('keydown', handleKeyDown);
+      }
+
+      function closeModal(modal) {
+        modal.setAttribute('aria-hidden', 'true');
+        document.removeEventListener('keydown', handleKeyDown);
+        if (lastFocused && typeof lastFocused.focus === 'function') lastFocused.focus();
+      }
+
+      function handleKeyDown(e) {
+        if (e.key === 'Escape') {
+          modals.forEach(m => m.setAttribute('aria-hidden', 'true'));
+          document.removeEventListener('keydown', handleKeyDown);
+          if (lastFocused) lastFocused.focus();
+        }
+      }
+
+      // close buttons inside modals
+      modals.forEach(modal => {
+        modal.addEventListener('click', (e) => {
+          // close when clicking the backdrop (outside panel)
+          if (e.target === modal) {
+            closeModal(modal);
+          }
+        });
+        const closeBtn = modal.querySelector('[data-close]');
+        closeBtn && closeBtn.addEventListener('click', () => closeModal(modal));
+      });
+
+      // basic form validation: enforce orgTitle pattern (native validation will handle)
+      // no custom submission handling needed because method="get" -> thankyou.html
+    })();
+  </script>
+</body>
+</html>

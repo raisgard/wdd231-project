@@ -1,0 +1,63 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Thank you — Ibadan Chamber</title>
+  <link rel="stylesheet" href="styles/normalize.css" />
+  <link rel="stylesheet" href="styles/chamber.css" />
+  <style>
+    .thank { max-width:900px;margin:2rem auto;padding:1rem;text-align:center }
+    .summary { margin-top:1rem;text-align:left;display:inline-block;text-align:left;min-width:320px }
+    .summary dt{ font-weight:700;margin-top:.5rem }
+    .summary dd{ margin:0 0 .5rem 0; color:#334155 }
+  </style>
+</head>
+<body>
+  <header class="site-header">
+    <div class="header-inner">
+      <a class="logo-link" href="index.html"><img src="images/chamber.jpg" alt="logo" width="64" height="64"><span class="site-owner">Ibadan Chamber</span></a>
+    </div>
+  </header>
+
+  <main class="thank" id="main">
+    <h1>Thank you for your application</h1>
+    <p>We received your submission. Below are the values you provided for required fields.</p>
+
+    <dl class="summary" id="summary">
+      <!-- JS will populate required fields here -->
+    </dl>
+
+    <p style="margin-top:1rem;"><a href="index.html" class="btn">Return Home</a></p>
+  </main>
+
+  <footer class="site-footer">
+    <div class="footer-inner"><p>Ibadan Chamber — WDD 231</p></div>
+  </footer>
+
+  <script>
+    // parse URL params (GET) and display required fields
+    (function(){
+      const params = new URLSearchParams(window.location.search);
+      const firstName = params.get('firstName') || '[Not provided]';
+      const lastName = params.get('lastName') || '[Not provided]';
+      const email = params.get('email') || '[Not provided]';
+      const mobile = params.get('mobile') || '[Not provided]';
+      const organization = params.get('organization') || '[Not provided]';
+      const timestamp = params.get('timestamp') ? new Date(params.get('timestamp')).toString() : '[Not provided]';
+
+      const summary = document.getElementById('summary');
+      summary.innerHTML = `
+        <dt>First Name</dt><dd>${escapeHtml(firstName)}</dd>
+        <dt>Last Name</dt><dd>${escapeHtml(lastName)}</dd>
+        <dt>Email</dt><dd>${escapeHtml(email)}</dd>
+        <dt>Mobile</dt><dd>${escapeHtml(mobile)}</dd>
+        <dt>Organization</dt><dd>${escapeHtml(organization)}</dd>
+        <dt>Form Timestamp</dt><dd>${escapeHtml(timestamp)}</dd>
+      `;
+
+      function escapeHtml(s){ return String(s).replace(/[&<>"']/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c])); }
+    })();
+  </script>
+</body>
+</html>
